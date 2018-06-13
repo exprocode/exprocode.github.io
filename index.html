@@ -1,0 +1,335 @@
+<!-- LIsence
+author @Eggy fachrurrozy
+Made with Love
+!-->
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>For Derpi chan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+      <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <style>
+ 
+@import url("https://fonts.googleapis.com/css?family=Lato");
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+* {
+  position: relative;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  outline: none;
+}
+.cls{
+}
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: linear-gradient(45deg, #06222E 0%, #260530 25%, #2E2333 51%, #1E0436 100%);
+  font-family: 'Lato', sans-serif;
+}
+.form.active {
+  padding: 24px;
+  background: #17161e;
+  border: #17161e;
+  box-shadow: 0px 30px 20px -20px rgba(0,0,0,0.3);
+  overflow: hidden;
+  width: 500px;
+  height: 600px;
+  -webkit-animation: openForm 1.4s;
+  -webkit-animation-timing-function: cubic-bezier(0.9, 0.1, 0.1, 0.9);
+  animation: openForm 1.4s;
+  animation-timing-function: cubic-bezier(0.9, 0.1, 0.1, 0.9);
+}
+.form.active * {
+  top: 0;
+  opacity: 1;
+}
+.form.active::after,
+.form.active::before {
+  opacity: 0;
+}
+.submit {
+  top: 0;
+  opacity: 1;
+  width: 150px;
+  padding: 8px;
+  text-align: center;
+  margin: 20px auto 0 auto;
+  background: #1E4B5F;
+  
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #ffffff;
+  
+  transition: all 1.1s 1s ease;
+}
+
+
+.submit2 {
+  top: 0;
+  opacity: 1;
+  width: 150px;
+  padding: 8px;
+  text-align: center;
+  margin: 20px auto 0 auto;
+  background: #1E4B5F;
+  
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #ffffff;
+  
+  transition: all 1.1s 1s ease;
+}
+
+
+
+h1 {
+  top: 0;
+  opacity: 1;
+ 
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 30px;
+  transition: all 0.3s 1s ease;
+  position: center;
+}
+
+h2 {
+  top: 0;
+  opacity: 1;
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 32px;
+  transition: all 0.3s 1s ease;
+}
+/* Form closed styles */
+.form {
+ 
+  width: 64px;
+  height: 64px;
+  background: #17161e;
+  border: 6px solid #2EA37C;
+  box-shadow: 0px 10px 20px -5px rgba(0,0,0,0.3);
+  cursor: pointer;
+  overflow: hidden;
+}
+.form * {
+  top: -12px;
+  opacity: 0;
+}
+.form::before,
+.form::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  opacity: 1;
+  left: 10px;
+  z-index: 100;
+  transition: all 0.1s linear;
+  -webkit-transform: scale(0.9999, 0.9999);
+  transform: scale(0.9999, 0.9999);
+}
+.form::before {
+  top: 15px;
+  -webkit-transform: perspective(1000) rotateX(0deg);
+          transform: perspective(1000) rotateX(0deg);
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+  border-top: 11px solid #fff;
+  border-right: 16px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 16px solid transparent;
+}
+.form::after {
+  top: 17px;
+  border-top: 11px solid transparent;
+  border-right: 16px solid #fff;
+  border-bottom: 11px solid #fff;
+  border-left: 16px solid #fff;
+}
+.form:hover::before {
+  -webkit-transform: perspective(1000) rotateX(180deg);
+          transform: perspective(1000) rotateX(180deg);
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+}
+/* ok mes */
+.ok_message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  width: 64px;
+  height: 64px;
+  background: #17161e;
+  z-index: 100;
+  -webkit-transform: scale(0, 0) rotate(-90deg);
+  transform: scale(0, 0) rotate(-90deg);
+  transition: all 0.5s 0.3s cubic-bezier(0.9, 0.1, 0.1, 0.9);
+  line-height: 64px;
+  text-align: center;
+  cursor: pointer;
+}
+.ok_message span {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #ffffff;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+  transform: scale(0.2, 0.2);
+  transition: all 0.6s 0.4s ease;
+}
+.ok_message.active {
+  width: 320px;
+  margin-left: -160px;
+  -webkit-transform: scale(1, 1) rotate(0deg);
+  transform: scale(1, 1) rotate(0deg);
+}
+.ok_message.active span {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  left: 0px;
+}
+
+.gagal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  width: 64px;
+  height: 64px;
+  background: #17161e;
+  z-index: 100;
+  -webkit-transform: scale(0, 0) rotate(-90deg);
+  transform: scale(0, 0) rotate(-90deg);
+  transition: all 0.5s 0.3s cubic-bezier(0.9, 0.1, 0.1, 0.9);
+  line-height: 64px;
+  text-align: center;
+  cursor: pointer;
+}
+.gagal span {
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #ffffff;
+  opacity: 0;
+  -webkit-transform: scale(0.2, 0.2);
+  transform: scale(0.2, 0.2);
+  transition: all 0.6s 0.4s ease;
+}
+.gagal.active {
+  width: 400px;
+  margin-left: -160px;
+  -webkit-transform: scale(1, 1) rotate(0deg);
+  transform: scale(1, 1) rotate(0deg);
+}
+.gagal.active span {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  left: 0px;
+}
+@-webkit-keyframes openForm {
+  0% {
+    width: 64px;
+    height: 64px;
+  }
+  50% {
+    width: 320px;
+    height: 320px;
+  }
+  100% {
+    width: 500px;
+    height: 600px;
+  }
+}
+@keyframes openForm {
+  0% {
+    width: 64px;
+    height: 64px;
+  }
+  50% {
+    width: 250px;
+    height: 320px;
+  }
+  100% {
+    width: 500px;
+    height: 600px;
+  }
+}
+
+    
+    </style>
+  <script>
+    
+ 
+    
+    </script>
+  <div class="form">
+
+    <div class="mail"></div>
+         <form action="">
+               <h1>Hallo "Tante" would you by my "Girl Friend" this heart present for you </h1>  
+                  <div class="submit">Yes I do</div>
+                      <br>
+                        <h1>
+                           <center>
+                         Or
+                           </center>
+                        </h1>
+                  <div class="submit2">Sorry ,  i cant :(</div>
+        </form>
+  </div>
+<div class="ok_message">
+<span>Thanks tante finally we declaration this relationship</span></div>
+<div class="gagal">
+<span>Ok no problem i will try next time :( i hope we can be good friend</span></div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
+<script>
+  $(".form").on('click', function(){
+  $(this).addClass('active');
+});
+
+$(".submit").on('click', function() {
+  $(this).parent().parent().hide(300);
+  $(".ok_message").addClass("active");
+});
+
+$(".submit2").on('click', function() {
+  $(this).parent().parent().hide(300);
+  $(".gagal").addClass("active");
+});
+
+$(".ok_message").on('click', function() {
+  $(this).removeClass("active");
+  
+});
+
+$(".gagal").on('click', function() {
+  $(this).removeClass("active");
+  $(".form").removeClass("active").show();
+});
+</script>
+</body>
+</html>
